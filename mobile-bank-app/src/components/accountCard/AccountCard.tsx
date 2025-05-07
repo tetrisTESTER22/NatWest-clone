@@ -1,4 +1,3 @@
-// components/AccountCard.tsx
 import './AccountCard.css'
 
 export default function AccountCard() {
