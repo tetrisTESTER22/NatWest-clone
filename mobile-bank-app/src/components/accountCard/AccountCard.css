@@ -1,25 +1,39 @@
 .account-card {
-    background-color: #1E1E1E;
-    padding: 16px;
-    border-radius: 16px;
+    background-color: #1e1e1e;
+    padding: 0 16px;
+    border-radius: 10px;
     color: white;
+    display: flex;
+    flex-direction: column;
     margin-top: 16px;
+    position: relative;
+  }
+  
+  .account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   
   .account-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
+    margin-bottom: 4px;
   }
   
   .account-details {
-    font-size: 12px;
+    font-size: 13px;
     color: #aaa;
-    margin-top: 4px;
+  }
+  
+  .account-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
   
   .account-balance {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 12px;
+    font-size: 22px;
+    font-weight: 600;
   }
   
