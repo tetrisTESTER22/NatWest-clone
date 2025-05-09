@@ -1,12 +1,9 @@
 import React from 'react';
 import './AccountDetails.css';
 import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
-import InfoIcon from '../../icons/InfoIcon';
-import WalletIcon from '../../icons/WalletIcon';
 import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
 import { useNavigate } from 'react-router-dom';
-import { accountData } from '../../data/AccountData'; 
 import AccountCard from '../../components/accountCard/AccountCard';
 
 export default function AccountDetails() {

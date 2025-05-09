@@ -15,7 +15,6 @@ const WalletIcon = () => (
       <line x1="120" y1="32" x2="115" y2="22" stroke="#B066FF" strokeWidth="4" strokeLinecap="round" />
     </g>
 
-    {/* Поднятая линия */}
     <line x1="40" y1="144" x2="160" y2="144"  />
   </svg>
 );

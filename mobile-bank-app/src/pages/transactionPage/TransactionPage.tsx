@@ -1,16 +1,24 @@
 import React from 'react';
 import './TransactionsPage.css';
 import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
-import WalletIcon from '../../icons/WalletIcon';
-import InfoIcon from '../../icons/InfoIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
 import DownloadIcon from '../../icons/DownloadIcon';
 import CalendarIcon from '../../icons/CalendarIcon';
 import SearchIcon from '../../icons/SearchIcon';
 import { useNavigate } from 'react-router-dom';
-import { accountData } from '../../data/AccountData';
-import { transactionData } from '../../data/TransactionData';
 import AccountCard from '../../components/accountCard/AccountCard';
+import transactionData from '../../data/transactions.json'; // 👈 импорт из src/data
+
+interface Transaction {
+  name: string;
+  amount: number;
+  icon: string;
+}
+
+interface TransactionGroup {
+  label: string;
+  transactions: Transaction[];
+}
 
 export default function TransactionPage() {
   const navigate = useNavigate();
@@ -45,7 +53,7 @@ export default function TransactionPage() {
       </div>
 
       <div className="transaction-groups">
-        {transactionData.map(group => (
+        {transactionData.map((group: TransactionGroup) => (
           <div key={group.label} className="transaction-group">
             <p className="transaction-label">{group.label}</p>
             {group.transactions.map((tx, index) => (

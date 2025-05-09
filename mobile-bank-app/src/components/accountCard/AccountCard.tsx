@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './AccountCard.css';
 import DotsIcon from '../../icons/DotsIcon';
 import WalletIcon from '../../icons/WalletIcon';
-import { accountData } from '../../data/AccountData';
+
+import accountData from '../../data/account.json'; 
 
 export default function AccountCard() {
   const navigate = useNavigate();
