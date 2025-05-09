@@ -201,12 +201,10 @@
   color: #6fe29c;
 }
 
-.transaction-amount.negative {
-  color: #ff6b6b;
-}
 
 .transaction-controls {
   display: flex;
+  margin-top: 20px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;

@@ -1,25 +1,24 @@
 import React from 'react';
 
 const WalletIcon = () => (
-    <svg
-      width="58"
-      height="58"
-      viewBox="0 0 48 48"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g transform="translate(0, 4)">
-        <rect x="8" y="6" width="28" height="10" rx="2" fill="#B084FF" />
-        
-        <rect x="6" y="12" width="32" height="20" rx="4" fill="#1e1e1e" stroke="#B084FF" strokeWidth="1.5" />
-        
-        <circle cx="10" cy="22" r="1.5" fill="#B084FF" />
-  
-        <line x1="32" y1="2" x2="32" y2="0" stroke="#B084FF" strokeWidth="1.2" />
-        <line x1="36" y1="3" x2="38" y2="1" stroke="#B084FF" strokeWidth="1.2" />
-        <line x1="36" y1="5" x2="38" y2="7" stroke="#B084FF" strokeWidth="1.2" />
-      </g>
-    </svg>
-  );
-  
-  export default WalletIcon;
-  
+  <svg
+    viewBox="0 0 200 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g transform="rotate(-8 100 100)">
+      <rect x="30" y="60" width="120" height="80" rx="10" fill="#3C007A" stroke="#B066FF" strokeWidth="6" />
+      <rect x="120" y="90" width="40" height="30" rx="4" fill="#3C007A" stroke="#B066FF" strokeWidth="6" />
+      <circle cx="140" cy="105" r="5" fill="#B066FF" />
+      <line x1="130" y1="30" x2="130" y2="20" stroke="#B066FF" strokeWidth="4" strokeLinecap="round" />
+      <line x1="140" y1="32" x2="145" y2="22" stroke="#B066FF" strokeWidth="4" strokeLinecap="round" />
+      <line x1="120" y1="32" x2="115" y2="22" stroke="#B066FF" strokeWidth="4" strokeLinecap="round" />
+    </g>
+
+    {/* Поднятая линия */}
+    <line x1="40" y1="144" x2="160" y2="144"  />
+  </svg>
+);
+
+export default WalletIcon;
+

@@ -7,6 +7,7 @@ import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
 import { useNavigate } from 'react-router-dom';
 import { accountData } from '../../data/AccountData'; 
+import AccountCard from '../../components/accountCard/AccountCard';
 
 export default function AccountDetails() {
   const navigate = useNavigate();
@@ -20,19 +21,7 @@ export default function AccountDetails() {
         <span className="header-title">My current account</span>
       </div>
 
-      <div className="account-card-details">
-        <div className="account-card-title">
-          <p className="account-name">{accountData.title}</p>
-          <p className="account-meta">
-            <InfoIcon /> Select Account · {accountData.accountNumber} · {accountData.sortCode}
-          </p>
-        </div>
-        <WalletIcon />
-        <div className="account-balance">
-          <InfoIcon />
-          <span>£{parseFloat(accountData.balance).toFixed(2)}</span>
-        </div>
-      </div>
+      <AccountCard />
 
       <div className="account-actions">
         {[

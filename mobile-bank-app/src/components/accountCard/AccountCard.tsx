@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AccountCard.css';
 import DotsIcon from '../../icons/DotsIcon';
 import WalletIcon from '../../icons/WalletIcon';
-import { accountData } from '../../data/AccountData'; // <-- импорт данных
+import { accountData } from '../../data/AccountData';
 
 export default function AccountCard() {
   const navigate = useNavigate();
@@ -29,7 +29,9 @@ export default function AccountCard() {
       </div>
 
       <div className="account-bottom">
-        <WalletIcon />
+        <div className="account-icon">
+          <WalletIcon />
+        </div>
         <p className="account-balance">£{parseFloat(accountData.balance).toFixed(2)}</p>
       </div>
     </div>

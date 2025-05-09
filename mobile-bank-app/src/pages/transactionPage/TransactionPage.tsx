@@ -10,6 +10,7 @@ import SearchIcon from '../../icons/SearchIcon';
 import { useNavigate } from 'react-router-dom';
 import { accountData } from '../../data/AccountData';
 import { transactionData } from '../../data/TransactionData';
+import AccountCard from '../../components/accountCard/AccountCard';
 
 export default function TransactionPage() {
   const navigate = useNavigate();
@@ -28,19 +29,7 @@ export default function TransactionPage() {
         <div className="tab">Spending</div>
       </div>
 
-      <div className="account-card-details">
-        <div className="account-card-title">
-          <p className="account-name">{accountData.title}</p>
-          <p className="account-meta">
-            <InfoIcon /> Select Account · {accountData.accountNumber} · {accountData.sortCode}
-          </p>
-        </div>
-        <WalletIcon />
-        <div className="account-balance">
-          <InfoIcon />
-          <span>£{parseFloat(accountData.balance).toFixed(2)}</span>
-        </div>
-      </div>
+      <AccountCard />
 
       <div className="transaction-controls">
         <div className="filter-tabs">

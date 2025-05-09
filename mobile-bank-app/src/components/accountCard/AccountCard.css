@@ -36,7 +36,16 @@
 .account-bottom {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center; /* Важно: выравнивание по центру */
+}
+
+.account-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .account-balance {
