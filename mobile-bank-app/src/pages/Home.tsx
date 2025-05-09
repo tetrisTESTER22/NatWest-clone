@@ -1,16 +1,29 @@
-import Header from '../components/header/Header'
-import AccountCard from '../components/accountCard/AccountCard'
-import './Home.css'
-import React from 'react';
-import FooterNav from '../components/footerNav/FooterNav'
-import ChevronDownIcon from '../icons/CheckIcon'
-import ArrowRightIcon from '../icons/ArrowRightIcon'
-import AddAccountIcon from '../icons/BankAccountCircleIcon'
-import DotsIcon from '../icons/DotsIcon'
-import SparkIcon from '../icons/SparkIcon'
-import ArrowRightIconBlack from '../icons/ArrowRightIconBlack'
+import Header from '../components/header/Header';
+import AccountCard from '../components/accountCard/AccountCard';
+import './Home.css';
+import React, { useEffect, useState } from 'react';
+import FooterNav from '../components/footerNav/FooterNav';
+import ChevronDownIcon from '../icons/CheckIcon';
+import ArrowRightIcon from '../icons/ArrowRightIcon';
+import AddAccountIcon from '../icons/BankAccountCircleIcon';
+import DotsIcon from '../icons/DotsIcon';
+import SparkIcon from '../icons/SparkIcon';
+import ArrowRightIconBlack from '../icons/ArrowRightIconBlack';
+import { loadTenantAccount } from '../utils/loadTenantData';
 
-export default function Home() {
+type HomeProps = {
+  tenant: string;
+  config: any;
+};
+
+export default function Home({ tenant, config }: HomeProps) {
+  const [account, setAccount] = useState<any>(null);
+
+  useEffect(() => {
+    const data = loadTenantAccount(tenant);
+    setAccount(data);
+  }, [tenant]);
+
   return (
     <div className="home-container">
       <Header />
@@ -31,7 +44,7 @@ export default function Home() {
         </div>
       </div>
 
-      <AccountCard />
+      {account && <AccountCard account={account} />}
 
       <div className="section-card add-account-card">
         <div className="add-account-left">
@@ -64,5 +77,5 @@ export default function Home() {
 
       <FooterNav />
     </div>
-  )
+  );
 }

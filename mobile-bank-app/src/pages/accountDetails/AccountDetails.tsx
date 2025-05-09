@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AccountDetails.css';
 import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
 import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
 import { useNavigate } from 'react-router-dom';
 import AccountCard from '../../components/accountCard/AccountCard';
+import { loadTenantAccount } from '../../utils/loadTenantData';
 
-export default function AccountDetails() {
+type Props = {
+  tenant: string;
+};
+
+export default function AccountDetails({ tenant }: Props) {
   const navigate = useNavigate();
+  const [account, setAccount] = useState<any>(null);
+
+  useEffect(() => {
+    const data = loadTenantAccount(tenant);
+    setAccount(data);
+  }, [tenant]);
+
+  if (!account) return <p>Загрузка аккаунта...</p>;
 
   return (
     <div className="account-details-container">
@@ -18,7 +31,7 @@ export default function AccountDetails() {
         <span className="header-title">My current account</span>
       </div>
 
-      <AccountCard />
+      <AccountCard account={account} />
 
       <div className="account-actions">
         {[
@@ -42,7 +55,7 @@ export default function AccountDetails() {
             className="action-item"
             key={label}
             onClick={() => {
-              if (label === 'My transactions') navigate('/transactions');
+              if (label === 'My transactions') navigate(`/${tenant}/transactions`);
             }}
           >
             <span>{label}</span>

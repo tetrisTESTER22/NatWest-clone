@@ -4,24 +4,31 @@ import './AccountCard.css';
 import DotsIcon from '../../icons/DotsIcon';
 import WalletIcon from '../../icons/WalletIcon';
 
-import accountData from '../../data/account.json'; 
+type Props = {
+  account: {
+    title: string;
+    accountNumber: string;
+    sortCode: string;
+    balance: string;
+  };
+};
 
-export default function AccountCard() {
+export default function AccountCard({ account }: Props) {
   const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent) => {
     const isIcon = (e.target as HTMLElement).closest('.no-click');
     if (isIcon) return;
-    navigate('/account');
+    navigate('account');
   };
 
   return (
     <div className="account-card" onClick={handleClick}>
       <div className="account-header">
         <div className="account-header-left">
-          <p className="account-title">{accountData.title}</p>
+          <p className="account-title">{account.title}</p>
           <p className="account-details">
-            Select Account · {accountData.accountNumber} · {accountData.sortCode}
+            Select Account · {account.accountNumber} · {account.sortCode}
           </p>
         </div>
         <div className="no-click">
@@ -33,7 +40,7 @@ export default function AccountCard() {
         <div className="account-icon">
           <WalletIcon />
         </div>
-        <p className="account-balance">£{parseFloat(accountData.balance).toFixed(2)}</p>
+        <p className="account-balance">£{parseFloat(account.balance).toFixed(2)}</p>
       </div>
     </div>
   );

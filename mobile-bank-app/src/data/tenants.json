@@ -1,0 +1,34 @@
+{
+    "ad1": {
+      "title": "Admin D1",
+      "themeColor": "#FFD700",
+      "logo": "/logos/d1.svg"
+    },
+    "ad2": {
+      "title": "Admin D2",
+      "themeColor": "#00BFFF",
+      "logo": "/logos/d2.svg"
+    },
+    "d3": {
+      "title": "Admin D3",
+      "themeColor": "#98FB98",
+      "logo": "/logos/d3.svg"
+    },
+    "d4": {
+      "title": "Admin D4",
+      "themeColor": "#FFD700",
+      "logo": "/logos/d1.svg"
+    },
+    "d5": {
+      "title": "Admin D5",
+      "themeColor": "#00BFFF",
+      "logo": "/logos/d2.svg"
+    },
+    "d6": {
+      "title": "Admin D6",
+      "themeColor": "#98FB98",
+      "logo": "/logos/d3.svg"
+    }
+    
+  }
+  

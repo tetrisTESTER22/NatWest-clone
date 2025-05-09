@@ -1,17 +1,17 @@
 // src/App.tsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import TransactionsPage from './pages/transactionPage/TransactionPage';
-import AccountDetails from './pages/accountDetails/AccountDetails';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import React from 'react';
+import TenantRouter from './layout/TenantRouter';
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="/account" element={<AccountDetails />} />
-        <Route path="/transactions" element={<TransactionsPage />} />
+        {/* Если зашли на корень сайта — редиректим на первого админа */}
+        <Route path="/" element={<Navigate to="/d1" />} />
+
+        {/* Все маршруты идут через TenantRouter */}
+        <Route path="/:tenant/*" element={<TenantRouter />} />
       </Routes>
     </Router>
   );

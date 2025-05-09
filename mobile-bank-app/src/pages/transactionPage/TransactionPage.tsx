@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './TransactionsPage.css';
 import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
@@ -7,7 +7,11 @@ import CalendarIcon from '../../icons/CalendarIcon';
 import SearchIcon from '../../icons/SearchIcon';
 import { useNavigate } from 'react-router-dom';
 import AccountCard from '../../components/accountCard/AccountCard';
-import transactionData from '../../data/transactions.json'; // 👈 импорт из src/data
+import { loadTenantAccount, loadTenantTransactions } from '../../utils/loadTenantData';
+
+interface Props {
+  tenant: string;
+}
 
 interface Transaction {
   name: string;
@@ -20,8 +24,17 @@ interface TransactionGroup {
   transactions: Transaction[];
 }
 
-export default function TransactionPage() {
+export default function TransactionPage({ tenant }: Props) {
   const navigate = useNavigate();
+  const [account, setAccount] = useState<any>(null);
+  const [transactionData, setTransactionData] = useState<TransactionGroup[]>([]);
+
+  useEffect(() => {
+    const acc = loadTenantAccount(tenant);
+    const txs = loadTenantTransactions(tenant);
+    setAccount(acc);
+    setTransactionData(txs);
+  }, [tenant]);
 
   return (
     <div className="transactions-container">
@@ -37,7 +50,7 @@ export default function TransactionPage() {
         <div className="tab">Spending</div>
       </div>
 
-      <AccountCard />
+      {account && <AccountCard account={account} />}
 
       <div className="transaction-controls">
         <div className="filter-tabs">
@@ -53,7 +66,7 @@ export default function TransactionPage() {
       </div>
 
       <div className="transaction-groups">
-        {transactionData.map((group: TransactionGroup) => (
+        {transactionData.map((group) => (
           <div key={group.label} className="transaction-group">
             <p className="transaction-label">{group.label}</p>
             {group.transactions.map((tx, index) => (
