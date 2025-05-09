@@ -1,35 +1,36 @@
 import React from 'react';
-
 import './AccountDetails.css';
-import ArrowLeftIcon from '/Users/admin/Documents/GitHub/NatWest-clone/mobile-bank-app/src/icons/ArrowLeftIcon';
-import InfoIcon from '/Users/admin/Documents/GitHub/NatWest-clone/mobile-bank-app/src/icons/InfoIcon';
-import WalletIcon from '/Users/admin/Documents/GitHub/NatWest-clone/mobile-bank-app/src/icons/WalletIcon';
-import ArrowRightIcon from '/Users/admin/Documents/GitHub/NatWest-clone/mobile-bank-app/src/icons/ArrowRightIcon';
+import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
+import InfoIcon from '../../icons/InfoIcon';
+import WalletIcon from '../../icons/WalletIcon';
+import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
 import { useNavigate } from 'react-router-dom';
-
+import { accountData } from '../../data/AccountData'; 
 
 export default function AccountDetails() {
   const navigate = useNavigate();
+
   return (
     <div className="account-details-container">
-<div className="account-header-1">
-<div className="header-back" onClick={() => navigate(-1)}>    <ArrowLeftIcon />
-  </div>
-  <span className="header-title">My current account</span>
-</div>
+      <div className="account-header-1">
+        <div className="header-back" onClick={() => navigate(-1)}>
+          <ArrowLeftIcon />
+        </div>
+        <span className="header-title">My current account</span>
+      </div>
 
       <div className="account-card-details">
         <div className="account-card-title">
-          <p className="account-name">FOLLOWS EJS</p>
+          <p className="account-name">{accountData.title}</p>
           <p className="account-meta">
-            <InfoIcon /> Select Account · 85710350 · 55-70-13
+            <InfoIcon /> Select Account · {accountData.accountNumber} · {accountData.sortCode}
           </p>
         </div>
         <WalletIcon />
         <div className="account-balance">
           <InfoIcon />
-          <span>£0.00</span>
+          <span>£{parseFloat(accountData.balance).toFixed(2)}</span>
         </div>
       </div>
 
@@ -57,6 +58,7 @@ export default function AccountDetails() {
           </div>
         ))}
       </div>
+
       <FooterNav />
     </div>
   );

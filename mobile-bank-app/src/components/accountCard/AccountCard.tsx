@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AccountCard.css';
 import DotsIcon from '../../icons/DotsIcon';
 import WalletIcon from '../../icons/WalletIcon';
+import { accountData } from '../../data/AccountData'; // <-- импорт данных
 
 export default function AccountCard() {
   const navigate = useNavigate();
@@ -17,9 +18,9 @@ export default function AccountCard() {
     <div className="account-card" onClick={handleClick}>
       <div className="account-header">
         <div className="account-header-left">
-          <p className="account-title">FOLLOWS EJS</p>
+          <p className="account-title">{accountData.title}</p>
           <p className="account-details">
-            Select Account · 85710350 · 55-70-13
+            Select Account · {accountData.accountNumber} · {accountData.sortCode}
           </p>
         </div>
         <div className="no-click">
@@ -29,7 +30,7 @@ export default function AccountCard() {
 
       <div className="account-bottom">
         <WalletIcon />
-        <p className="account-balance">£0.00</p>
+        <p className="account-balance">£{parseFloat(accountData.balance).toFixed(2)}</p>
       </div>
     </div>
   );
