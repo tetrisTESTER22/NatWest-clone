@@ -12,7 +12,6 @@ const accountMap: Record<string, any> = {
 const transactionsMap: Record<string, any[]> = {
   ad1: transactionsD1,
   ad2: transactionsD2,
-
 };
 
 export function loadTenantAccount(tenant: string) {
