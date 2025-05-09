@@ -4,6 +4,9 @@ import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
 import WalletIcon from '../../icons/WalletIcon';
 import InfoIcon from '../../icons/InfoIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
+import DownloadIcon from '../../icons/DownloadIcon';
+import CalendarIcon from '../../icons/CalendarIcon';
+import SearchIcon from '../../icons/SearchIcon';
 import { useNavigate } from 'react-router-dom';
 import { accountData } from '../../data/AccountData';
 import { transactionData } from '../../data/TransactionData';
@@ -39,6 +42,19 @@ export default function TransactionPage() {
         </div>
       </div>
 
+      <div className="transaction-controls">
+        <div className="filter-tabs">
+          <div className="filter-tab active">All</div>
+          <div className="filter-tab">In</div>
+          <div className="filter-tab">Out</div>
+        </div>
+        <div className="filter-icons">
+          <DownloadIcon />
+          <CalendarIcon />
+          <SearchIcon />
+        </div>
+      </div>
+
       <div className="transaction-groups">
         {transactionData.map(group => (
           <div key={group.label} className="transaction-group">
@@ -50,7 +66,7 @@ export default function TransactionPage() {
                   <span className="transaction-name">{tx.name}</span>
                 </div>
                 <span className={`transaction-amount ${tx.amount > 0 ? 'positive' : 'negative'}`}>
-                  {tx.amount > 0 ? '+ ' : '- '}£{Math.abs(tx.amount).toFixed(2)}
+                  {tx.amount > 0 ? '+' : '-'}£{Math.abs(tx.amount).toFixed(2)}
                 </span>
               </div>
             ))}
