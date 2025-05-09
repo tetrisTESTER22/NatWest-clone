@@ -1,3 +1,5 @@
+import React from 'react';
+
 const PaymentsIcon = ({ active = false }: { active?: boolean }) => (
     <svg
       width="24"

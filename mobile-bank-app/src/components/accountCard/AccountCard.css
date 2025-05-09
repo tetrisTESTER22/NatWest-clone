@@ -1,39 +1,47 @@
 .account-card {
-    background-color: #1e1e1e;
-    padding: 0 16px;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    margin-top: 16px;
-    position: relative;
-  }
-  
-  .account-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .account-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  
-  .account-details {
-    font-size: 13px;
-    color: #aaa;
-  }
-  
-  .account-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  
-  .account-balance {
-    font-size: 22px;
-    font-weight: 600;
-  }
-  
+  background-color: #1e1e1e;
+  padding: 16px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.account-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.account-details {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+}
+
+.account-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.account-balance {
+  font-size: 22px;
+  font-weight: 600;
+  color: #c5afff;
+  margin: 0;
+}

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ChevronDownIcon = ({ color = '#B084FF' }: { color?: string }) => (
     <svg
       width="20"

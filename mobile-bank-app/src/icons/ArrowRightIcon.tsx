@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ArrowRightIcon = ({ color = '#B084FF' }: { color?: string }) => (
     <svg
       width="20"

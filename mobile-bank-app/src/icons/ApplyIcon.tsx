@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ApplyIcon = ({ active = false }: { active?: boolean }) => (
     <svg
       width="24"

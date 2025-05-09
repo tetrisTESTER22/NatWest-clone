@@ -1,3 +1,5 @@
+import React from 'react';
+
 const DotsIcon = ({ color = '#B084FF' }: { color?: string }) => (
     <svg
       width="40"

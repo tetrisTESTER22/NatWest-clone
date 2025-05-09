@@ -1,6 +1,7 @@
 import './Header.css'
 import NotificationIcon from '../../icons/NotificationIcon'
 import SearchIcon from '../../icons/SearchIcon'
+import React from 'react';
 
 export default function Header() {
   return (

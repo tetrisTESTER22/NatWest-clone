@@ -1,3 +1,5 @@
+import React from 'react';
+
 const BankAccountCircleIcon = ({ color = '#B084FF' }: { color?: string }) => (
   <svg
     width="20"

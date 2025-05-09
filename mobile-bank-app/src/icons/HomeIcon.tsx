@@ -1,3 +1,5 @@
+import React from 'react';
+
 const HomeIcon = ({ active = false }: { active?: boolean }) => (
     <svg
       width="24"
