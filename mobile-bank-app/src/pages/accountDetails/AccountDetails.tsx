@@ -52,7 +52,13 @@ export default function AccountDetails() {
           'Account settings',
           'Close this account'
         ].map((label) => (
-          <div className="action-item" key={label}>
+          <div
+            className="action-item"
+            key={label}
+            onClick={() => {
+              if (label === 'My transactions') navigate('/transactions');
+            }}
+          >
             <span>{label}</span>
             <ArrowRightIcon />
           </div>
