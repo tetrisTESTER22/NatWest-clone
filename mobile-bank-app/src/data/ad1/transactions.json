@@ -5,27 +5,27 @@
       {
         "name": "Name",
         "amount": 35,
-        "icon": "/icon/svg"
+        "icon": "/transactionIcons/revolutIcon.png"
       },
       {
         "name": "Tesstt1",
         "amount": -45.33,
-        "icon": "/icon/svg"
+        "icon": "/transactionIcons/default.png"
       },
       {
         "name": "test",
         "amount": 45,
-        "icon": "/icon/svg"
+        "icon": "/transactionIcons/default.png"
       },
       {
         "name": "test",
         "amount": -45.22,
-        "icon": "/icon/svgg"
+        "icon": "/transactionIcons/default.png"
       },
       {
         "name": "test",
         "amount": 545,
-        "icon": "icon"
+        "icon": "/transactionIcons/default.png"
       }
     ]
   },
@@ -35,7 +35,7 @@
       {
         "name": "test",
         "amount": 435,
-        "icon": "icon"
+        "icon": "/transactionIcons/default.png"
       }
     ]
   }
