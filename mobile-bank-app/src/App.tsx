@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import React, { useState, useEffect } from 'react';
 import TenantRouter from './layout/TenantRouter';
 import SplashScreen from './components/preRoll/SplashScreen';
-import DynamicIslandMock from './components/preRoll/DynamicIslandMock';
 
 export default function App() {
   const [step, setStep] = useState<'splash' | 'app'>('splash');

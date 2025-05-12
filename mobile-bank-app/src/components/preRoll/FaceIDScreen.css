@@ -11,7 +11,7 @@
 
 .faceid-wrapper {
   position: absolute;
-  top: calc(50px + 17.5px - 40px); /* 29.5 - half of FaceID height (80/2) */
+  top: calc(50px + 17.5px - 40px);
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
