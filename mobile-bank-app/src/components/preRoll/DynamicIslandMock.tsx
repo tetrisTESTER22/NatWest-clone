@@ -1,5 +1,5 @@
 import React from 'react';
-// components/DynamicIslandMock.tsx
+
 export default function DynamicIslandMock() {
     return (
       <div style={{

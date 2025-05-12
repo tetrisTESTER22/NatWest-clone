@@ -7,7 +7,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowFaceID(true); // показываем faceID спустя 1.5 секунды
+      setShowFaceID(true); 
     }, 1500);
 
     return () => clearTimeout(timer);
@@ -23,7 +23,6 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
         <img src="/iconsPreRoll/BPA_logo_Vertical_white.png" alt="Paralympics GB" />
       </div>
 
-      {/* Показываем FaceID только после задержки */}
       {showFaceID && (
         <div className="splash-overlay">
           <FaceIDScreen onComplete={onComplete} />
