@@ -20,8 +20,12 @@ export default function Home({ tenant, config }: HomeProps) {
   const [account, setAccount] = useState<any>(null);
 
   useEffect(() => {
-    const data = loadTenantAccount(tenant);
-    setAccount(data);
+    async function fetchAccount() {
+      const data = await loadTenantAccount(tenant);
+      setAccount(data);
+    }
+
+    fetchAccount();
   }, [tenant]);
 
   return (
@@ -44,7 +48,11 @@ export default function Home({ tenant, config }: HomeProps) {
         </div>
       </div>
 
-      {account && <AccountCard account={account} />}
+      {account ? (
+        <AccountCard account={account} />
+      ) : (
+        <p className="loading-text">Loading account...</p>
+      )}
 
       <div className="section-card add-account-card">
         <div className="add-account-left">

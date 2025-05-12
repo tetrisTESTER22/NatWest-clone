@@ -9,7 +9,7 @@ type Props = {
     title: string;
     accountNumber: string;
     sortCode: string;
-    balance: string;
+    balance: number;
   };
 };
 
@@ -40,7 +40,9 @@ export default function AccountCard({ account }: Props) {
         <div className="account-icon">
           <WalletIcon />
         </div>
-        <p className="account-balance">£{parseFloat(account.balance).toFixed(2)}</p>
+        <p className="account-balance">
+          £{typeof account.balance === 'number' ? account.balance.toFixed(2) : '0.00'}
+      </p>
       </div>
     </div>
   );

@@ -30,10 +30,13 @@ export default function TransactionPage({ tenant }: Props) {
   const [transactionData, setTransactionData] = useState<TransactionGroup[]>([]);
 
   useEffect(() => {
-    const acc = loadTenantAccount(tenant);
-    const txs = loadTenantTransactions(tenant);
-    setAccount(acc);
-    setTransactionData(txs);
+    async function loadData() {
+      const acc = await loadTenantAccount(tenant);
+      const txs = await loadTenantTransactions(tenant);
+      setAccount(acc);
+      setTransactionData(txs);
+    }
+    loadData();
   }, [tenant]);
 
   return (

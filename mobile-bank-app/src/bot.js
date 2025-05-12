@@ -1,3 +1,4 @@
+// multi-admin bot with login flow, Telegraf v4
 const { Telegraf, Markup } = require('telegraf');
 const fs = require('fs').promises;
 const path = require('path');
@@ -21,8 +22,8 @@ const updateAccountSteps = new Map();
 
 function getPaths(tenant) {
   return {
-    account: path.join(__dirname, `../src/data/${tenant}/account.json`),
-    transactions: path.join(__dirname, `../src/data/${tenant}/transactions.json`),
+    account: path.join(__dirname, `../public/data/${tenant}/account.json`),
+    transactions: path.join(__dirname, `../public/data/${tenant}/transactions.json`),
   };
 }
 
@@ -234,7 +235,7 @@ bot.on('text', async (ctx) => {
     } catch {
       return ctx.reply('❌ Не удалось загрузить account.json');
     }
-}
+  }
 });
 
 bot.launch();

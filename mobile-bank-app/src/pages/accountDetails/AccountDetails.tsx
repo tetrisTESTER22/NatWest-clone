@@ -16,8 +16,12 @@ export default function AccountDetails({ tenant }: Props) {
   const [account, setAccount] = useState<any>(null);
 
   useEffect(() => {
-    const data = loadTenantAccount(tenant);
-    setAccount(data);
+    async function fetchAccount() {
+      const data = await loadTenantAccount(tenant);
+      setAccount(data);
+    }
+
+    fetchAccount();
   }, [tenant]);
 
   if (!account) return <p>Загрузка аккаунта...</p>;
