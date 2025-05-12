@@ -1,0 +1,57 @@
+.splash-container {
+  position: relative;
+  height: 100vh;
+  background-color: #4b0082;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.splash-logos {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  z-index: 1;
+}
+
+.splash-logos img {
+  height: 60px;
+}
+
+.splash-divider {
+  width: 1px;
+  height: 40px;
+  background-color: white;
+}
+
+.splash-bottom {
+  position: absolute;
+  bottom: 30px;
+  z-index: 1;
+}
+
+.splash-bottom img {
+  height: 100px;
+  width: 100px;
+}
+
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  background: #4b0082; /* затемнение */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* Удаляем анимацию */
+  animation: none !important;
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

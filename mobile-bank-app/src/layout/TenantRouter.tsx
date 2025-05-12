@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import AccountDetails from '../pages/accountDetails/AccountDetails';
 import TransactionsPage from '../pages/transactionPage/TransactionPage';
 import tenants from '../data/tenants.json';
+import React from 'react';
 
 export default function TenantRouter() {
   const { tenant } = useParams();
