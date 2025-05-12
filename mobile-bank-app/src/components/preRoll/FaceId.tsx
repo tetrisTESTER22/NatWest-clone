@@ -7,7 +7,7 @@ export default function FaceIDScreen({ onComplete }: { onComplete: () => void })
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 4500); 
+    }, 7500); 
 
     return () => clearTimeout(timer);
   }, [onComplete]);
