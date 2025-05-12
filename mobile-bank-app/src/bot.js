@@ -22,8 +22,8 @@ const updateAccountSteps = new Map();
 
 function getPaths(tenant) {
   return {
-    account: path.join(__dirname, `../public/data/${tenant}/account.json`),
-    transactions: path.join(__dirname, `../public/data/${tenant}/transactions.json`),
+    account: path.join(__dirname, `../build/data/${tenant}/account.json`),
+    transactions: path.join(__dirname, `../build/data/${tenant}/transactions.json`),
   };
 }
 
