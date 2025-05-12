@@ -1,26 +1,23 @@
-.faceid-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: #4b0082;
-  z-index: 9998;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  overflow: hidden;
-}
-
 .faceid-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 120px;
+  height: 110px;
   border-radius: 20px;
-  overflow: hidden;
   background-color: #4b0082;
+  overflow: hidden;
+  margin-bottom: 24px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  isolation: isolate;
 }
 
 .faceid-lottie {
   width: 120px;
   height: 40px;
+  display: block;
+  transform: scale(0.97); 
+  transform-origin: center;
+  border-radius: 20px;
 }
