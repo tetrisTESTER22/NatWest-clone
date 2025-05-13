@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 110px;
+  width: 150px;
+  height: 140px;
   border-radius: 20px;
   background-color: #4b0082;
   overflow: hidden;
@@ -14,10 +14,8 @@
 }
 
 .faceid-lottie {
-  width: 120px;
-  height: 40px;
+  width: 180px;
+  height: 180px;
   display: block;
-  transform: scale(0.97); 
-  transform-origin: center;
   border-radius: 20px;
 }
