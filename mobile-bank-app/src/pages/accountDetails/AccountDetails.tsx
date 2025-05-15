@@ -3,7 +3,7 @@ import './AccountDetails.css';
 import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
 import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AccountCard from '../../components/accountCard/AccountCard';
 import { loadTenantAccount } from '../../utils/loadTenantData';
 import AnimatedPageWrapper from '../../components/animatedPage/AnimatedPage';
@@ -15,9 +15,7 @@ type Props = {
 
 export default function AccountDetails({ tenant }: Props) {
   const navigate = useNavigate();
-  const location = useLocation();
   const { setDirection } = useNavigationDirection();
-  const direction = location.state?.direction || 'forward';
   const [account, setAccount] = useState<any>(null);
 
   useEffect(() => {
