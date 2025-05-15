@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AccountCard.css';
 import DotsIcon from '../../icons/DotsIcon';
 import WalletIcon from '../../icons/WalletIcon';
+import { useNavigationDirection } from '../../context/NavigationDirectionContext'; 
 
 type Props = {
   account: {
@@ -15,10 +16,13 @@ type Props = {
 
 export default function AccountCard({ account }: Props) {
   const navigate = useNavigate();
+  const { setDirection } = useNavigationDirection();
 
   const handleClick = (e: React.MouseEvent) => {
     const isIcon = (e.target as HTMLElement).closest('.no-click');
     if (isIcon) return;
+
+    setDirection('forward');
     navigate('account');
   };
 
@@ -42,7 +46,7 @@ export default function AccountCard({ account }: Props) {
         </div>
         <p className="account-balance">
           £{typeof account.balance === 'number' ? account.balance.toFixed(2) : '0.00'}
-      </p>
+        </p>
       </div>
     </div>
   );

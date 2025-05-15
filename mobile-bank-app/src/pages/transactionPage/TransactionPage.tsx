@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import AccountCard from '../../components/accountCard/AccountCard';
 import { loadTenantAccount, loadTenantTransactions } from '../../utils/loadTenantData';
 import AnimatedPageWrapper from '../../components/animatedPage/AnimatedPage';
+import { useNavigationDirection } from '../../context/NavigationDirectionContext';
+
 
 interface Props {
   tenant: string;
@@ -27,6 +29,7 @@ interface TransactionGroup {
 
 export default function TransactionPage({ tenant }: Props) {
   const navigate = useNavigate();
+  const { setDirection } = useNavigationDirection();
   const [account, setAccount] = useState<any>(null);
   const [transactionData, setTransactionData] = useState<TransactionGroup[]>([]);
 
@@ -45,7 +48,13 @@ export default function TransactionPage({ tenant }: Props) {
       <AnimatedPageWrapper>
         <div className="transactions-container">
           <div className="transaction-header">
-            <div className="header-back" onClick={() => navigate(-1)}>
+          <div
+            className="header-back"
+            onClick={() => {
+              setDirection('backward');  
+              navigate(`/${tenant}/account`, { state: { direction: 'backward' } });            
+            }}
+          >
               <ArrowLeftIcon />
             </div>
             <span className="header-title">My transactions</span>

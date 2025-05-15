@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import React, { useState, useEffect } from 'react';
 import TenantRouter from './layout/TenantRouter';
 import SplashScreen from './components/preRoll/SplashScreen';
+import { NavigationDirectionProvider } from './context/NavigationDirectionContext';
 
 export default function App() {
   const [step, setStep] = useState<'splash' | 'app'>('splash');
@@ -15,6 +16,8 @@ export default function App() {
   }, []);
 
   return (
+    <React.StrictMode>
+    <NavigationDirectionProvider>
     <Router>
       {step === 'splash' && <SplashScreen onComplete={() => setStep('app')} />}
       {step === 'app' && (
@@ -25,5 +28,7 @@ export default function App() {
         </Routes>
       )}
     </Router>
+    </NavigationDirectionProvider>
+  </React.StrictMode>
   );
 }

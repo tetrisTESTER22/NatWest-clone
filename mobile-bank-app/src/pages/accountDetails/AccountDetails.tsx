@@ -3,10 +3,11 @@ import './AccountDetails.css';
 import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
 import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import FooterNav from '../../components/footerNav/FooterNav';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import AccountCard from '../../components/accountCard/AccountCard';
 import { loadTenantAccount } from '../../utils/loadTenantData';
 import AnimatedPageWrapper from '../../components/animatedPage/AnimatedPage';
+import { useNavigationDirection } from '../../context/NavigationDirectionContext';
 
 type Props = {
   tenant: string;
@@ -14,6 +15,9 @@ type Props = {
 
 export default function AccountDetails({ tenant }: Props) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { setDirection } = useNavigationDirection();
+  const direction = location.state?.direction || 'forward';
   const [account, setAccount] = useState<any>(null);
 
   useEffect(() => {
@@ -25,14 +29,20 @@ export default function AccountDetails({ tenant }: Props) {
     fetchAccount();
   }, [tenant]);
 
-  if (!account) return <p>Загрузка аккаунта...</p>;
+  if (!account) return <p></p>;
 
   return (
     <>
       <AnimatedPageWrapper>
         <div className="account-details-container">
           <div className="account-header-1">
-            <div className="header-back" onClick={() => navigate(-1)}>
+          <div
+            className="header-back"
+            onClick={() => {
+              setDirection('backward');  
+              navigate(`/${tenant}/`, { state: { direction: 'backward' } });            
+            }}
+          >
               <ArrowLeftIcon />
             </div>
             <span className="header-title">My current account</span>
@@ -62,7 +72,9 @@ export default function AccountDetails({ tenant }: Props) {
                 className="action-item"
                 key={label}
                 onClick={() => {
-                  if (label === 'My transactions') navigate(`/${tenant}/transactions`);
+                  if (label === 'My transactions')
+                    setDirection('forward');
+                    navigate(`/${tenant}/transactions`, { state: { direction: 'forward' } });
                 }}
               >
                 <span>{label}</span>

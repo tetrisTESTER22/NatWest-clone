@@ -11,6 +11,8 @@ import SparkIcon from '../icons/SparkIcon';
 import ArrowRightIconBlack from '../icons/ArrowRightIconBlack';
 import { loadTenantAccount } from '../utils/loadTenantData';
 import AnimatedPageWrapper from '../components/animatedPage/AnimatedPage';
+import { useNavigationDirection } from '../context/NavigationDirectionContext';
+import { useNavigate } from 'react-router-dom';
 
 type HomeProps = {
   tenant: string;
@@ -18,7 +20,9 @@ type HomeProps = {
 };
 
 export default function Home({ tenant, config }: HomeProps) {
+  const { setDirection } = useNavigationDirection();
   const [account, setAccount] = useState<any>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchAccount() {
@@ -28,6 +32,11 @@ export default function Home({ tenant, config }: HomeProps) {
 
     fetchAccount();
   }, [tenant]);
+
+  const handleAccountClick = () => {
+    setDirection('forward');
+    navigate(`/${tenant}/account`);
+  };
 
   return (
     <div className="home-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -51,9 +60,11 @@ export default function Home({ tenant, config }: HomeProps) {
         </div>
 
         {account ? (
-          <AccountCard account={account} />
+          <div onClick={handleAccountClick}>
+            <AccountCard account={account} />
+          </div>
         ) : (
-          <p className="loading-text">Loading account...</p>
+          <p className="loading-text"></p>
         )}
 
         <div className="section-card add-account-card">
@@ -79,11 +90,12 @@ export default function Home({ tenant, config }: HomeProps) {
           </div>
         </div>
       </AnimatedPageWrapper>
+
       <div className="info-banner">
-          <SparkIcon />
-          <span className="info-text">Check out what’s new in your app</span>
-          <ArrowRightIconBlack />
-        </div>
+        <SparkIcon />
+        <span className="info-text">Check out what’s new in your app</span>
+        <ArrowRightIconBlack />
+      </div>
 
       <FooterNav />
     </div>
