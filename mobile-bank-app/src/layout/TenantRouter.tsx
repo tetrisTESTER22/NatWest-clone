@@ -25,8 +25,8 @@ export default function TenantRouter() {
     }
   }, [tenant]);
 
-  if (!tenant || config === null) return <h1>Загрузка...</h1>;
-  if (!config) return <h1>404: Админ не найден</h1>;
+  if (!tenant || config === null) return <h1></h1>;
+  if (!config) return <h1></h1>;
 
   return (
     <Routes>
